@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement_basics : MonoBehaviour
 {
     public Character_Controller controller;
+    public Animator MarshiAnimator;
     public float runSpeed=40f;
     
     bool jump = false;
@@ -13,6 +14,8 @@ public class Movement_basics : MonoBehaviour
     void Update()
     {
        horizontalMove = Input.GetAxis("Horizontal") *runSpeed;
+
+        MarshiAnimator.SetFloat("Speed",Mathf.Abs(horizontalMove));
 
         if (Input.GetButtonDown("Jump"))
         {
